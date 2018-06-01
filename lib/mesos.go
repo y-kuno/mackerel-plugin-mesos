@@ -215,6 +215,7 @@ func (p *MesosPlugin) parseMetrics(data map[string]float64) map[string]float64 {
 	return metrics
 }
 
+// Do the plugin
 func Do() {
 	optHost := kingpin.Flag("host", "Hostname").Default("localhost").String()
 	optPort := kingpin.Flag("port", "Port").Default("5050").String()
