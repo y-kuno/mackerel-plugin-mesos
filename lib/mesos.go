@@ -189,14 +189,20 @@ func (p *MesosPlugin) GraphDefinition() map[string]mp.Graphs {
 // FetchMetrics interface for mackerelplugin
 func (p *MesosPlugin) FetchMetrics() (map[string]float64, error) {
 	url := fmt.Sprintf("http://%s:%s/metrics/snapshot", p.Host, p.Port)
-	res, err := http.Get(url)
+	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		return nil, err
 	}
-	defer res.Body.Close()
+	req.Header.Set("User-Agent", "mackerel-plugin-mesos")
+
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
 
 	data := make(map[string]float64)
-	decoder := json.NewDecoder(res.Body)
+	decoder := json.NewDecoder(resp.Body)
 	if err := decoder.Decode(&data); err != nil {
 		return nil, err
 	}

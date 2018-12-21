@@ -1,4 +1,8 @@
-# mackerel-plugin-mesos [![Build Status](https://travis-ci.org/y-kuno/mackerel-plugin-mesos.svg?branch=master)](https://travis-ci.org/y-kuno/mackerel-plugin-mesos)
+# mackerel-plugin-mesos
+
+[![Build Status](https://travis-ci.org/y-kuno/mackerel-plugin-mesos.svg?branch=master)](https://travis-ci.org/y-kuno/mackerel-plugin-mesos)
+![License](https://img.shields.io/github/license/y-kuno/mackerel-plugin-mesos.svg)
+![Release](https://img.shields.io/github/release/y-kuno/mackerel-plugin-mesos.svg)
 
 Mesos plugin for mackerel.io agent. This repository releases an artifact to Github Releases, which satisfy the format for mkr plugin installer.
 
